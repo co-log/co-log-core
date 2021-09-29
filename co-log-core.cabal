@@ -21,8 +21,8 @@ description:
     * [co-log-polysemy](http://hackage.haskell.org/package/co-log-polysemy): extensible
       effects implementation based on @polysemy@.
 
-homepage:            https://github.com/kowainik/co-log
-bug-reports:         https://github.com/kowainik/co-log/issues
+homepage:            https://github.com/co-log/co-log-core
+bug-reports:         https://github.com/co-log/co-log-core/issues
 license:             MPL-2.0
 license-file:        LICENSE
 author:              Dmitrii Kovanikov
@@ -42,7 +42,7 @@ tested-with:         GHC == 8.2.2
 
 source-repository head
   type:                git
-  location:            https://github.com/kowainik/co-log.git
+  location:            https://github.com/co-log/co-log-core.git
 
 common common-options
   build-depends:       base >= 4.10.1.0 && < 4.16
