@@ -1,9 +1,12 @@
 {-# LANGUAGE CPP #-}
 
 {- |
-Copyright:  (c) 2018-2020 Kowainik
-SPDX-License-Identifier: MPL-2.0
-Maintainer: Kowainik <xrom.xkov@gmail.com>
+Module                  : Colog.Core.IO
+Copyright               : (c) 2018-2020 Kowainik
+SPDX-License-Identifier : MPL-2.0
+Maintainer              : Co-Log <xrom.xkov@gmail.com>
+Stability               : Stable
+Portability             : Portable
 
 Introduces logging actions working in 'MonadIO'. These actions are very basic
 and inefficient because they use the 'String' data type. If you don't want to
@@ -170,7 +173,7 @@ liftLogIO (LogAction action) = LogAction (liftIO . action)
 {- | This action can be used in combination with other actions to flush
 a handle every time you log anything.
 
-@since x.x.x.x
+@since 0.3.0.0
 -}
 logFlush :: MonadIO m => Handle -> LogAction m a
 logFlush handle = LogAction $ const $ liftIO $ hFlush handle

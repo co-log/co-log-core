@@ -1,7 +1,10 @@
 {- |
-Copyright:  (c) 2018-2020 Kowainik
-SPDX-License-Identifier: MPL-2.0
-Maintainer: Kowainik <xrom.xkov@gmail.com>
+Module                  : Colog.Core
+Copyright               : (c) 2018-2020 Kowainik, 2021 Co-Log
+SPDX-License-Identifier : MPL-2.0
+Maintainer              : Co-Log <xrom.xkov@gmail.com>
+Stability               : Stable
+Portability             : Portable
 
 Exports all core functionality. @co-log-core@ is a lightweight package that
 defines only core data type and various combinators to work with it.
@@ -25,6 +28,7 @@ The package has the following structure:
 * __"Colog.Core.IO":__ basic loggers that work with 'Control.Monad.IO.Class.MonadIO' and 'String'.
 * __"Colog.Core.Severity":__ logger severity.
 -}
+
 module Colog.Core
        ( module Colog.Core.Action
        , module Colog.Core.Class

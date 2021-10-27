@@ -3,10 +3,21 @@
 `co-log-core` uses [PVP Versioning][1].
 The change log is available [on GitHub][2].
 
-## 0.2.1.2 — <M> <d>, 2021
+## 0.3.0.0 — Oct 8, 2021
 
-* [#223](https://github.com/kowainik/co-log/pulls/223):
+* [#223](https://github.com/co-log/co-log/pull/223):
   Support GHC-9.0.1.
+* [#176](https://github.com/co-log/co-log/issues/176):
+  Add `logFlush` handle to flush the given
+
+  __Breaking change:__ All `withLog*File` functions how flush handle
+  after logging each message. Now you'll see logs in the file
+  immediately.
+
+  __Migration guide:__ If you rely on the previous behaviour, then
+  copy-paste corresponding functions and remove flushing.
+
+* Update maintainers information to the new Co-Log organization.
 
 ## 0.2.1.1 — Apr 18, 2020
 
