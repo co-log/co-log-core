@@ -38,6 +38,8 @@ jobs:
             ghc: 8.2.2
 
           - os: windows-latest
+            ghc: 9.2.1
+          - os: windows-latest
             ghc: 9.0.1
           - os: windows-latest
             ghc: 8.8.4
