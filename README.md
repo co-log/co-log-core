@@ -2,7 +2,7 @@
 
 ![Co-logo](https://user-images.githubusercontent.com/8126674/80955687-92f21a80-8df7-11ea-90d3-422dafdc8391.png)
 
-[![GitHub CI](https://github.com/kowainik/co-log/workflows/CI/badge.svg)](https://github.com/kowainik/co-log/actions)
+[![GitHub CI](https://github.com/co-log/co-log-core/workflows/CI/badge.svg)](https://github.com/kowainik/co-log/actions)
 [![Hackage][hk-img-core]][hk-core]
 [![Stackage LTS][lts-img-core]][lts-core]
 [![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](https://github.com/kowainik/co-log/blob/main/LICENSE)
@@ -30,18 +30,21 @@ will need to set it up with these steps:
 2. To use this package, refer to the below example.
 
      ```haskell
-    module Colog.Core
-          ( module Colog.Core.Action
-          , module Colog.Core.Class
-          , module Colog.Core.IO
-          , module Colog.Core.Severity
-          ) where
+     module Main (main) where
+     
+     import Prelude hiding (log)
 
-    import Colog.Core.Action
-    import Colog.Core.Class
-    import Colog.Core.IO
-    import Colog.Core.Severity 
-    ```
+     import Colog.Core (LogAction, logStringStdout, (<&))
+
+
+     app :: LogAction IO String -> IO ()
+     app log = do
+     log <& "Starting app..."
+     log <& "Finishing app..."
+
+     main :: IO ()
+     main = app logStringStdout
+     ```
  
  
 [hk-img-core]: https://img.shields.io/hackage/v/co-log-core.svg?logo=haskell
