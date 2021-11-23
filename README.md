@@ -28,22 +28,22 @@ will need to set it up with these steps:
 
 2. To use this package, refer to the below example.
 
-     ```haskell
-      module Main (main) where
+   ```haskell
+   module Main (main) where
 
-      import Prelude hiding (log)
+   import Prelude hiding (log)
 
-      import Colog.Core (LogAction, logStringStdout, (<&))
+   import Colog.Core (LogAction, logStringStdout, (<&))
 
 
-      app :: LogAction IO String -> IO ()
-      app log = do
-         log <& "Starting app..."
-         log <& "Finishing app..."
-    
-      main :: IO ()
-      main = app logStringStdout
-     ```
+   app :: LogAction IO String -> IO ()
+   app log = do
+       log <& "Starting app..."
+       log <& "Finishing app..."
+
+   main :: IO ()
+   main = app logStringStdout
+   ```
  
  
 [hk-img-core]: https://img.shields.io/hackage/v/co-log-core.svg?logo=haskell
