@@ -2,7 +2,7 @@
 
 ![Co-logo](https://user-images.githubusercontent.com/8126674/80955687-92f21a80-8df7-11ea-90d3-422dafdc8391.png)
 
-[![GitHub CI](https://github.com/co-log/co-log-core/workflows/CI/badge.svg)](https://github.com/kowainik/co-log/actions)
+[![GitHub CI](https://github.com/co-log/co-log-core/workflows/CI/badge.svg)](https://github.com/co-log/co-log-core/actions)
 [![Hackage][hk-img-core]][hk-core]
 [![Stackage LTS][lts-img-core]][lts-core]
 [![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](https://github.com/kowainik/co-log/blob/main/LICENSE)
@@ -20,8 +20,7 @@ will need to set it up with these steps:
 
 1. Add the dependency on `co-log-core` in your project's
    `.cabal` file. For this, you should modify the `build-depends`
-   section by adding the name of this library. After the adjustment,
-   this section could look like this:
+   section according to the below section:
 
    ```haskell
    build-depends: base ^>= LATEST_SUPPORTED_BASE
@@ -30,20 +29,20 @@ will need to set it up with these steps:
 2. To use this package, refer to the below example.
 
      ```haskell
-     module Main (main) where
-     
-     import Prelude hiding (log)
+      module Main (main) where
 
-     import Colog.Core (LogAction, logStringStdout, (<&))
+      import Prelude hiding (log)
+
+      import Colog.Core (LogAction, logStringStdout, (<&))
 
 
-     app :: LogAction IO String -> IO ()
-     app log = do
-     log <& "Starting app..."
-     log <& "Finishing app..."
-
-     main :: IO ()
-     main = app logStringStdout
+      app :: LogAction IO String -> IO ()
+      app log = do
+         log <& "Starting app..."
+         log <& "Finishing app..."
+    
+      main :: IO ()
+      main = app logStringStdout
      ```
  
  
