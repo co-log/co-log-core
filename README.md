@@ -24,6 +24,7 @@ will need to set it up with these steps:
 
    ```haskell
    build-depends: base ^>= LATEST_SUPPORTED_BASE
+                , co-log-core ^>= LATEST_VERSION
    ```
 
 2. To use this package, refer to the below example.
