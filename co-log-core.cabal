@@ -66,6 +66,8 @@ common common-options
 
   default-language:    Haskell2010
   default-extensions:  ConstraintKinds
+                       DeriveFunctor
+                       DeriveTraversable
                        DeriveGeneric
                        DerivingStrategies
                        GeneralizedNewtypeDeriving

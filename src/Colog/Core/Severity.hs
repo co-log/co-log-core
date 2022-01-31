@@ -34,6 +34,7 @@ module Colog.Core.Severity
        , pattern W
        , pattern E
        , filterBySeverity
+       , WithSeverity (..)
        ) where
 
 import Data.Ix (Ix)
@@ -102,3 +103,25 @@ filterBySeverity
     -> LogAction m a
 filterBySeverity s fs = cfilter (\a -> fs a >= s)
 {-# INLINE filterBySeverity #-}
+
+-- Note: the order of the fields here is to allow the constructor to be used infix.
+{-| A message tagged with a 'Severity'.
+ 
+It is common to want to log various types of messages tagged with a severity. 
+'WithSeverity' provides a standard way to do so while allowing the messages to be processed independently of the severity.
+
+It is easy to 'cmap' over a 'LogAction m (WithSeverity a)', or to filter based on the severity.
+
+@
+logSomething :: LogAction m (WithSeverity String) -> m ()
+logSomething logger = logger <& "hello" `WithSeverity` Info
+
+cmap' :: (b -> a) -> LogAction m (WithSeverity a) -> LogAction m (WithSeverity b)
+cmap' f action = cmap (fmap f) action
+
+filterBySeverity' :: (Applicative m) => Severity -> LogAction m (WithSeverity a) -> LogAction m (WithSeverity a)
+filterBySeverity' threshold action = filterBySeverity threshold getSeverity action
+@
+-}
+data WithSeverity msg = WithSeverity { getMsg :: msg , getSeverity :: Severity }
+  deriving stock (Show, Eq, Ord, Functor, Foldable, Traversable)
