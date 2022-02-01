@@ -35,6 +35,7 @@ module Colog.Core.Severity
        , pattern E
        , filterBySeverity
        , WithSeverity (..)
+       , mapSeverity
        ) where
 
 import Data.Ix (Ix)
@@ -125,3 +126,14 @@ filterBySeverity' threshold action = filterBySeverity threshold getSeverity acti
 -}
 data WithSeverity msg = WithSeverity { getMsg :: msg , getSeverity :: Severity }
   deriving stock (Show, Eq, Ord, Functor, Foldable, Traversable)
+
+{- | Map the given function over the severity of a 'WithSeverity'.
+ 
+This can be useful to operate generically over the severity, for example:
+@
+suppressErrors :: LogAction m (WithSeverity msg) -> LogAction m (WithSeverity msg)
+suppressErrors = cmap (mapSeverity (\s -> if s == Error then Warning else s))
+@
+-}
+mapSeverity :: (Severity -> Severity) -> WithSeverity msg -> WithSeverity msg
+mapSeverity f (WithSeverity msg sev) = WithSeverity msg (f sev)

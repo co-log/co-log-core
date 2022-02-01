@@ -5,7 +5,7 @@ The change log is available [on GitHub][2].
 
 ## Unreleased
 
-* Added `WithSeverity` to `Colog.Severity`.
+* Added `WithSeverity` and `mapSeverity` to `Colog.Severity`.
 
 ## 🎃 0.3.0.0 — Oct 29, 2021
 
