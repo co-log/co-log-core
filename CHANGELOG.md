@@ -3,6 +3,10 @@
 `co-log-core` uses [PVP Versioning][1].
 The change log is available [on GitHub][2].
 
+## Unreleased
+
+* Added `WithSeverity` and `mapSeverity` to `Colog.Severity`.
+
 ## 🎃 0.3.0.0 — Oct 29, 2021
 
 * [#223](https://github.com/co-log/co-log/pull/223):
