@@ -2,7 +2,7 @@
 
 {- |
 Module                  : Colog.Core.Severity
-Copyright               : (c) 2018-2020 Kowainik, 2021 Co-Log
+Copyright               : (c) 2018-2020 Kowainik, 2021-2022 Co-Log
 SPDX-License-Identifier : MPL-2.0
 Maintainer              : Co-Log <xrom.xkov@gmail.com>
 Stability               : Stable
@@ -114,15 +114,17 @@ It is common to want to log various types of messages tagged with a severity.
 It is easy to 'cmap' over a 'LogAction m (WithSeverity a)', or to filter based on the severity.
 
 @
-logSomething :: LogAction m (WithSeverity String) -> m ()
-logSomething logger = logger <& "hello" `WithSeverity` Info
+logSomething :: 'LogAction' m ('WithSeverity' 'String') -> m ()
+logSomething logger = logger <& "hello" \`WithSeverity\` 'Info'
 
-cmap' :: (b -> a) -> LogAction m (WithSeverity a) -> LogAction m (WithSeverity b)
-cmap' f action = cmap (fmap f) action
+cmap' :: (b -> a) -> 'LogAction' m ('WithSeverity' a) -> 'LogAction' m ('WithSeverity' b)
+cmap' f action = 'cmap' ('fmap' f) action
 
-filterBySeverity' :: (Applicative m) => Severity -> LogAction m (WithSeverity a) -> LogAction m (WithSeverity a)
-filterBySeverity' threshold action = filterBySeverity threshold getSeverity action
+filterBySeverity' :: ('Applicative' m) => 'Severity' -> 'LogAction' m ('WithSeverity' a) -> 'LogAction' m ('WithSeverity' a)
+filterBySeverity' threshold action = 'filterBySeverity' threshold 'getSeverity' action
 @
+
+@since 0.3.1.0
 -}
 data WithSeverity msg = WithSeverity { getMsg :: msg , getSeverity :: Severity }
   deriving stock (Show, Eq, Ord, Functor, Foldable, Traversable)
@@ -130,10 +132,14 @@ data WithSeverity msg = WithSeverity { getMsg :: msg , getSeverity :: Severity }
 {- | Map the given function over the severity of a 'WithSeverity'.
  
 This can be useful to operate generically over the severity, for example:
+
 @
-suppressErrors :: LogAction m (WithSeverity msg) -> LogAction m (WithSeverity msg)
-suppressErrors = cmap (mapSeverity (\s -> if s == Error then Warning else s))
+suppressErrors :: 'LogAction' m ('WithSeverity' msg) -> 'LogAction' m ('WithSeverity' msg)
+suppressErrors = 'cmap' ('mapSeverity' (\s -> if s == 'Error' then 'Warning' else s))
 @
+
+@since 0.3.1.0
 -}
 mapSeverity :: (Severity -> Severity) -> WithSeverity msg -> WithSeverity msg
 mapSeverity f (WithSeverity msg sev) = WithSeverity msg (f sev)
+{-# INLINE mapSeverity #-}
