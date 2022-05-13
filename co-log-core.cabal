@@ -40,6 +40,7 @@ tested-with:         GHC == 8.2.2
                      GHC == 8.10.7
                      GHC == 9.0.2
                      GHC == 9.2.1
+                     GHC == 9.2.2
 
 source-repository head
   type:                git
@@ -100,5 +101,5 @@ test-suite doctest
   type:                 exitcode-stdio-1.0
   hs-source-dirs:       test
   main-is:              Doctests.hs
-  build-depends:        doctest >= 0.16.0 && < 0.19
+  build-depends:        doctest >= 0.16.0 && < 0.21
                       , Glob ^>= 0.10.0
