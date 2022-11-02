@@ -4,7 +4,6 @@
 
 [![GitHub CI](https://github.com/co-log/co-log-core/workflows/CI/badge.svg)](https://github.com/co-log/co-log-core/actions)
 [![Hackage][hk-img-core]][hk-core]
-[![Stackage LTS][lts-img-core]][lts-core]
 [![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](https://github.com/kowainik/co-log/blob/main/LICENSE)
 
 `co-log-core` is a lightweight package that provides core types and functions to 
@@ -49,5 +48,3 @@ will need to set it up with these steps:
  
 [hk-img-core]: https://img.shields.io/hackage/v/co-log-core.svg?logo=haskell
 [hk-core]: https://hackage.haskell.org/package/co-log-core
-[lts-img-core]: http://stackage.org/package/co-log-core/badge/lts
-[lts-core]: http://stackage.org/lts/package/co-log-core
