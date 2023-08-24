@@ -2,7 +2,7 @@
 
 {- |
 Module                  : Colog.Core.IO
-Copyright               : (c) 2018-2020 Kowainik, 2021-2022 Co-Log
+Copyright               : (c) 2018-2020 Kowainik, 2021-2023 Co-Log
 SPDX-License-Identifier : MPL-2.0
 Maintainer              : Co-Log <xrom.xkov@gmail.com>
 Stability               : Stable
@@ -33,10 +33,11 @@ module Colog.Core.IO
        , logFlush
        ) where
 
-import Colog.Core.Action (LogAction (..))
+import Colog.Core.Action      (LogAction (..))
 import Control.Monad.IO.Class (MonadIO, liftIO)
-import Data.Semigroup ((<>))
-import System.IO (Handle, IOMode (AppendMode), hFlush, hPrint, hPutStrLn, stderr, withFile)
+import Data.Semigroup         ((<>))
+import System.IO              (Handle, IOMode (AppendMode), hFlush, hPrint,
+                               hPutStrLn, stderr, withFile)
 
 
 {- $setup

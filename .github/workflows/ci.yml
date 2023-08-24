@@ -17,19 +17,22 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
-        cabal: ["3.8"]
+        cabal: ['latest']
         ghc:
-          - "8.2.2"
-          - "8.4.4"
-          - "8.6.5"
-          - "8.8.4"
-          - "8.10.7"
-          - "9.0.2"
-          - "9.2.4"
-          - "9.4.2"
+          - '8.2.2'
+          - '8.4.4'
+          - '8.6.5'
+          - '8.8.4'
+          - '8.10.7'
+          - '9.0.2'
+          - '9.2.8'
+          - '9.4.6'
+          - '9.6.2'
         exclude:
           - os: macOS-latest
-            ghc: 9.2.4
+            ghc: 9.4.6
+          - os: macOS-latest
+            ghc: 9.2.8
           - os: macOS-latest
             ghc: 9.0.2
           - os: macOS-latest
@@ -44,7 +47,9 @@ jobs:
             ghc: 8.2.2
 
           - os: windows-latest
-            ghc: 9.2.4
+            ghc: 9.4.6
+          - os: windows-latest
+            ghc: 9.2.8
           - os: windows-latest
             ghc: 9.0.2
           - os: windows-latest
@@ -59,41 +64,41 @@ jobs:
             ghc: 8.2.2
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - uses: haskell/actions/setup@v2
-      id: setup-haskell-cabal
-      name: Setup Haskell
-      with:
-        ghc-version: ${{ matrix.ghc }}
-        cabal-version: ${{ matrix.cabal }}
+      - uses: haskell/actions/setup@v2
+        id: setup-haskell-cabal
+        name: Setup Haskell
+        with:
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: ${{ matrix.cabal }}
 
-    - name: Configure
-      run: |
-        cabal configure --enable-tests --enable-benchmarks --enable-documentation --test-show-details=direct --write-ghc-environment-files=always
+      - name: Configure
+        run: |
+          cabal configure --enable-tests --enable-benchmarks --enable-documentation --test-show-details=direct --write-ghc-environment-files=always
 
-    - name: Freeze
-      run: |
-        cabal freeze
+      - name: Freeze
+        run: |
+          cabal freeze
 
-    - uses: actions/cache@v3
-      name: Cache ~/.cabal/store
-      with:
-        path: ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
-        key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
+      - uses: actions/cache@v3
+        name: Cache ~/.cabal/store
+        with:
+          path: ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
+          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
 
-    - name: Install dependencies
-      run: |
-        cabal build all --only-dependencies
+      - name: Install dependencies
+        run: |
+          cabal build all --only-dependencies
 
-    - name: Build
-      run: |
-        cabal build all
+      - name: Build
+        run: |
+          cabal build all
 
-    - name: Test
-      run: |
-        cabal test all
+      - name: Test
+        run: |
+          cabal test all
 
-    - name: Documentation
-      run: |
-        cabal haddock
+      - name: Documentation
+        run: |
+          cabal haddock

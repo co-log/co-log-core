@@ -7,7 +7,7 @@
 
 {- |
 Module                  : Colog.Core.Action
-Copyright               : (c) 2018-2020 Kowainik, 2021-2022 Co-Log
+Copyright               : (c) 2018-2020 Kowainik, 2021-2023 Co-Log
 SPDX-License-Identifier : MPL-2.0
 Maintainer              : Co-Log <xrom.xkov@gmail.com>
 Stability               : Stable
@@ -66,15 +66,15 @@ module Colog.Core.Action
        , hoistLogAction
        ) where
 
-import Control.Monad (when, (<=<), (>=>))
-import Data.Coerce (coerce)
-import Data.Foldable (fold, for_, traverse_)
-import Data.Kind (Constraint)
-import Data.List.NonEmpty (NonEmpty (..))
-import Data.Monoid (Monoid (..))
-import Data.Semigroup (Semigroup (..), stimesMonoid)
-import Data.Void (Void, absurd)
-import GHC.TypeLits (ErrorMessage (..), TypeError)
+import           Control.Monad              (when, (<=<), (>=>))
+import           Data.Coerce                (coerce)
+import           Data.Foldable              (fold, for_, traverse_)
+import           Data.Kind                  (Constraint)
+import           Data.List.NonEmpty         (NonEmpty (..))
+import           Data.Monoid                (Monoid (..))
+import           Data.Semigroup             (Semigroup (..), stimesMonoid)
+import           Data.Void                  (Void, absurd)
+import           GHC.TypeLits               (ErrorMessage (..), TypeError)
 
 #if MIN_VERSION_base(4,12,0)
 import qualified Data.Functor.Contravariant as Contravariant
@@ -167,12 +167,12 @@ type family UnrepresentableClass :: Constraint
   where
     UnrepresentableClass = TypeError
         ( 'Text "'LogAction' cannot have a 'Functor' instance by design."
-        ':$$: 'Text "However, you've attempted to use this instance."
+        ' :$$: 'Text "However, you've attempted to use this instance."
 #if MIN_VERSION_base(4,12,0)
-        ':$$: 'Text ""
-        ':$$: 'Text "Probably you meant 'Contravariant' class instance with the following methods:"
-        ':$$: 'Text "  * contramap :: (a -> b) -> LogAction m b -> LogAction m a"
-        ':$$: 'Text "  * (>$) :: b -> LogAction m b -> LogAction m a"
+        ' :$$: 'Text ""
+        ' :$$: 'Text "Probably you meant 'Contravariant' class instance with the following methods:"
+        ' :$$: 'Text "  * contramap :: (a -> b) -> LogAction m b -> LogAction m a"
+        ' :$$: 'Text "  * (>$) :: b -> LogAction m b -> LogAction m a"
 #endif
         )
 
