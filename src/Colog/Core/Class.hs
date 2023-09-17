@@ -4,7 +4,7 @@
 
 {- |
 Module                  : Colog.Core.Class
-Copyright               : (c) 2018-2020 Kowainik, 2021-2022 Co-Log
+Copyright               : (c) 2018-2020 Kowainik, 2021-2023 Co-Log
 SPDX-License-Identifier : MPL-2.0
 Maintainer              : Co-Log <xrom.xkov@gmail.com>
 Stability               : Stable
@@ -21,7 +21,7 @@ module Colog.Core.Class
        , Lens'
        ) where
 
-import Colog.Core.Action (LogAction)
+import Colog.Core.Action  (LogAction)
 import Data.Functor.Const (Const (..))
 
 
