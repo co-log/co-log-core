@@ -2,7 +2,7 @@
 
 {- |
 Module                  : Colog.Core.IO
-Copyright               : (c) 2018-2020 Kowainik, 2021-2023 Co-Log
+Copyright               : (c) 2018-2020 Kowainik, 2021-2024 Co-Log
 SPDX-License-Identifier : MPL-2.0
 Maintainer              : Co-Log <xrom.xkov@gmail.com>
 Stability               : Stable
