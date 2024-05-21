@@ -27,7 +27,7 @@ license:             MPL-2.0
 license-file:        LICENSE
 author:              Dmitrii Kovanikov
 maintainer:          Kowainik <xrom.xkov@gmail.com>
-copyright:           2018-2020 Kowainik, 2021-2023 Co-Log
+copyright:           2018-2020 Kowainik, 2021-2024 Co-Log
 category:            Logging, Contravariant, Comonad
 build-type:          Simple
 stability:           stable
@@ -40,16 +40,17 @@ tested-with:         GHC == 8.2.2
                      GHC == 8.10.7
                      GHC == 9.0.2
                      GHC == 9.2.8
-                     GHC == 9.4.7
-                     GHC == 9.6.3
-                     GHC == 9.8.1
+                     GHC == 9.4.8
+                     GHC == 9.6.5
+                     GHC == 9.8.2
+                     GHC == 9.10.1
 
 source-repository head
   type:                git
   location:            https://github.com/co-log/co-log-core.git
 
 common common-options
-  build-depends:       base >= 4.10.1.0 && < 4.20
+  build-depends:       base >= 4.10.1.0 && < 4.21
 
   ghc-options:         -Wall
                        -Wcompat
