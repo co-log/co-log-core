@@ -3,6 +3,15 @@
 `co-log-core` uses [PVP Versioning][1].
 The change log is available [on GitHub][2].
 
+## 0.3.2.2 — May 21, 2024
+
+## What's Changed
+* GA(deps): Bump actions/cache from 3 to 4 by @dependabot in https://github.com/co-log/co-log-core/pull/40
+* Support ghc-9.10. by @alaendle in https://github.com/co-log/co-log-core/pull/41
+
+
+**Full Changelog**: https://github.com/co-log/co-log-core/compare/v0.3.2.1...v0.3.2.2
+
 ## 0.3.2.1 — Oct 20, 2023
 
 ## What's Changed
@@ -17,6 +26,7 @@ The change log is available [on GitHub][2].
 * @Vekhir made their first contribution in https://github.com/co-log/co-log-core/pull/36
 
 **Full Changelog**: https://github.com/co-log/co-log-core/compare/v0.3.2.0...v0.3.2.1
+
 ## 0.3.2.0 — Nov 2, 2022
 
 - [#25](https://github.com/co-log/co-log-core/issues/25):
