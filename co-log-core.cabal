@@ -41,8 +41,8 @@ tested-with:         GHC == 8.2.2
                      GHC == 9.0.2
                      GHC == 9.2.8
                      GHC == 9.4.8
-                     GHC == 9.6.5
-                     GHC == 9.8.2
+                     GHC == 9.6.6
+                     GHC == 9.8.4
                      GHC == 9.10.1
 
 source-repository head
@@ -107,5 +107,5 @@ test-suite doctest
   type:                 exitcode-stdio-1.0
   hs-source-dirs:       test
   main-is:              Doctests.hs
-  build-depends:        doctest >= 0.16.0 && < 0.23
+  build-depends:        doctest >= 0.16.0 && < 0.24
                       , Glob ^>= 0.10.0
