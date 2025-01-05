@@ -3,7 +3,7 @@
 `co-log-core` uses [PVP Versioning][1].
 The change log is available [on GitHub][2].
 
-## 0.3.2.4 — January 5, 2024
+## 0.3.2.4 — January 5, 2025
 
 ## What's Changed
 
