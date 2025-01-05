@@ -44,6 +44,7 @@ tested-with:         GHC == 8.2.2
                      GHC == 9.6.6
                      GHC == 9.8.4
                      GHC == 9.10.1
+                     GHC == 9.12.1
 
 source-repository head
   type:                git
@@ -97,10 +98,10 @@ library
   import:              common-options
   hs-source-dirs:      src
   exposed-modules:     Colog.Core
-                           Colog.Core.Action
-                           Colog.Core.Class
-                           Colog.Core.Severity
-                           Colog.Core.IO
+                       Colog.Core.Action
+                       Colog.Core.Class
+                       Colog.Core.Severity
+                       Colog.Core.IO
 
 test-suite doctest
   import:               common-options
