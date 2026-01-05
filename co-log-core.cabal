@@ -1,6 +1,6 @@
 cabal-version:       2.4
 name:                co-log-core
-version:             0.3.2.5
+version:             0.3.2.6
 synopsis:            Composable Contravariant Comonadic Logging Library
 description:
     This package provides core types and functions to work with the @LogAction@ data type which is both simple and powerful.
@@ -27,7 +27,7 @@ license:             MPL-2.0
 license-file:        LICENSE
 author:              Dmitrii Kovanikov
 maintainer:          Co-Log <xrom.xkov@gmail.com>
-copyright:           2018-2020 Kowainik, 2021-2025 Co-Log
+copyright:           2018-2020 Kowainik, 2021-2026 Co-Log
 category:            Logging, Contravariant, Comonad
 build-type:          Simple
 stability:           stable
