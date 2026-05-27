@@ -3,6 +3,14 @@
 `co-log-core` uses [PVP Versioning][1].
 The change log is available [on GitHub][2].
 
+## 0.3.2.7 — May 27, 2026
+
+## What's Changed
+
+* Allow newer `doctest`s.
+
+**Full Changelog**: https://github.com/co-log/co-log-core/compare/v0.3.2.6...v0.3.2.7
+
 ## 0.3.2.6 — January 5, 2026
 
 ## What's Changed
